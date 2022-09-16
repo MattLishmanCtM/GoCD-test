@@ -14,11 +14,13 @@ pipelines:
                 - exec:
                     command: docker
                     arguments:
-                      - run node:16
+                      - run
+                      - node:16
                       - node -v
                 - exec:
                     command: docker
                     arguments:
                       - run
-                      - -v $(pwd)/app:/app node:16
+                      - -v $(pwd)/app:/app
+                      - node:16
                       - npm install
