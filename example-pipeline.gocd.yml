@@ -9,21 +9,13 @@ pipelines:
     stages:
       - test:
           jobs:
-            list-files:
+            install:
               tasks:
                 - exec:
-                    command: ls
-            print-directory:
-              tasks:
-                - exec:
-                    command: pwd
-            docker-stuff:
-              tasks:
-                - exec:
-                    command: docker run -v `pwd`/app:/app node
+                    command: docker run -v $(pwd)/app:/app node
                     arguments:
                       - node -v
                 - exec:
-                    command: docker run -v `pwd`/app:/app node
+                    command: docker run -v $(pwd)/app:/app node
                     arguments:
                       - npm install
