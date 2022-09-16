@@ -20,4 +20,5 @@ pipelines:
               tasks:
                 - exec:
                     command: docker
-                    arguments: -v
+                    arguments:
+                      - -v
