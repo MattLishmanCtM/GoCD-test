@@ -19,5 +19,5 @@ pipelines:
             docker-stuff:
               tasks:
                 - exec:
-                    command: docker -v
-
+                    command: docker
+                    arguments: -v
