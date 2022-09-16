@@ -11,4 +11,4 @@ pipelines:
             test:
               tasks:
                 - exec:
-                    command: npm run test
+                    command: docker run node:latest npm run test
