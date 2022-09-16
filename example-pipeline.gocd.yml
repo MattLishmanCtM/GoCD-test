@@ -5,6 +5,7 @@ pipelines:
     materials:
       mygit:
         git: https://github.com/MattLishmanCtM/gocd-test
+        destination: app
     stages:
       - test:
           jobs:
@@ -19,6 +20,10 @@ pipelines:
             docker-stuff:
               tasks:
                 - exec:
-                    command: docker
+                    command: docker run -v `pwd`/app:/app node
                     arguments:
-                      - -v
+                      - node -v
+                - exec:
+                    command: docker run -v `pwd`/app:/app node
+                    arguments:
+                      - npm install
