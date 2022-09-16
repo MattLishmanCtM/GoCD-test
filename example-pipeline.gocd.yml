@@ -8,7 +8,16 @@ pipelines:
     stages:
       - test:
           jobs:
-            test:
+            list-files:
               tasks:
                 - exec:
-                    command: docker run node:latest npm run test
+                    command: ls
+            print-directory:
+              tasks:
+                - exec:
+                    command: pwd
+            docker-stuff:
+              tasks:
+                - exec:
+                    command: docker -v
+
