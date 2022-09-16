@@ -1,0 +1,14 @@
+format_version: 10
+pipelines:
+  testpipeline:
+    group: mygroup
+    materials:
+      mygit:
+        git: https://github.com/MattLishmanCtM/gocd-test
+    stages:
+      - test:
+          jobs:
+            test:
+              tasks:
+                - exec:
+                    command: npm run test
