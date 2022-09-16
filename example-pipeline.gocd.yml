@@ -12,8 +12,9 @@ pipelines:
             install:
               tasks:
                 - exec:
-                    command: docker run -v $(pwd)/app:/app node
+                    command: docker
                     arguments:
+                      - run
                       - node -v
                 - exec:
                     command: docker
