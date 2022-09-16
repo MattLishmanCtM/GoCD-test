@@ -19,5 +19,5 @@ pipelines:
                     command: docker
                     arguments:
                       - run
-                      - -v $(pwd)/app:/app node
+                      - -v $(pwd)/app:/app node:16
                       - npm install
