@@ -10,19 +10,18 @@ pipelines:
       - install:
           fetch_materials: yes
           clean_workspace: yes
-          jobs:
-            tasks:
-              - exec:
-                  command: bash
-                  arguments:
-                    - -c
-                    - >
-                      docker run node:16
-                      node -v
-              - exec:
-                  command: bash
-                  arguments:
-                    - -c
-                    - >
-                      docker run -v $(pwd)/app:/app node:16
-                      npm install
+          tasks:
+            - exec:
+                command: bash
+                arguments:
+                  - -c
+                  - >
+                    docker run node:16
+                    node -v
+            - exec:
+                command: bash
+                arguments:
+                  - -c
+                  - >
+                    docker run -v $(pwd)/app:/app node:16
+                    npm install
