@@ -14,10 +14,11 @@ pipelines:
                 - exec:
                     command: pwd
                 - exec:
-                    command: docker
+                    command: bash
                     arguments:
+                      - -c
                       - >
-                        run node:16
+                        docker run node:16
                         node -v
                 - exec:
                     command: docker
