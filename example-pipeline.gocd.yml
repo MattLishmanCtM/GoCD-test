@@ -12,6 +12,8 @@ pipelines:
             install:
               tasks:
                 - exec:
+                    command: pwd
+                - exec:
                     command: docker
                     arguments:
                       - run
