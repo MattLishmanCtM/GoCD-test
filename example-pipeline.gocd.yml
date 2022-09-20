@@ -12,12 +12,7 @@ pipelines:
           clean_workspace: yes
           tasks:
             - exec:
-                command: bash
-                arguments:
-                  - -c
-                  - >
-                    docker run node:16
-                    node -v
+                command: pwd
             - exec:
                 command: bash
                 arguments:
