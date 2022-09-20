@@ -12,8 +12,6 @@ pipelines:
             install:
               tasks:
                 - exec:
-                    command: pwd
-                - exec:
                     command: bash
                     arguments:
                       - -c
@@ -21,9 +19,9 @@ pipelines:
                         docker run node:16
                         node -v
                 - exec:
-                    command: docker
+                    command: bash
                     arguments:
-                      - run
-                      - -v $(pwd)/app:/app
-                      - node:16
-                      - npm install
+                      - -c
+                      - >
+                        docker run -v $(pwd)/app:/app node:16
+                        npm install
