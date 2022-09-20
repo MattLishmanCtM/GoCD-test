@@ -16,9 +16,9 @@ pipelines:
                 - exec:
                     command: docker
                     arguments:
-                      - run
-                      - node:16
-                      - node -v
+                      - > 
+                        run node:16
+                        node -v
                 - exec:
                     command: docker
                     arguments:
