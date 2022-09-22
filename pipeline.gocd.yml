@@ -1,8 +1,8 @@
 format_version: 10
-environment_variables:
-  APP_PATH: $(pwd)/app
 pipelines:
   testpipeline:
+    parameters:
+      APP_PATH: $(pwd)/app
     group: platform
     materials:
       mygit:
