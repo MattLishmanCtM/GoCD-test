@@ -1,6 +1,6 @@
 format_version: 10
 pipelines:
-  testpipeline:
+  data-definition-manager:
     parameters:
       APP_PATH: $(pwd)/app
     group: platform
