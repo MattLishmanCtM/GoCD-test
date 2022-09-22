@@ -1,0 +1,32 @@
+format_version: 10
+pipelines:
+  environment_variables:
+#    APP_PATH: $(pwd)/app
+    APP_PATH: $(pwd)/app
+  testpipeline:
+    group: platform
+    materials:
+      mygit:
+        git: https://github.com/ComparetheMarket/customer.data-definition-manager
+        destination: app
+        branch: ci/go-cd-config
+    stages:
+      - install:
+          fetch_materials: yes
+          clean_workspace: yes
+          tasks:
+            - exec:
+                command: pwd
+            - exec:
+                command: ls
+            - exec:
+                command: bash
+                arguments:
+                  - -c
+                  - >
+                    docker run -v $APP_PATH:/app -v $APP_PATH/node_modules:node_modules node:16
+                    npm install
+          artifacts:
+            - node_modules:
+                source: node_modules/
+                destination: node_modules
